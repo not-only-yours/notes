@@ -1,0 +1,19 @@
+#container{
+    padding: 15px;
+}
+#noteBody{
+    height: 200px;
+}
+select{
+    height: 200px!important;
+}
+#noteDisplay{
+    padding: 20px;
+    border: 1px solid #121212;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.btnSave {
+    margin-top: 10px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Notepad</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src = "Router.js"></script>
+</head>
+
+<body>
+        <div id = "container">
+            <h1>Notepad</h1>
+            <div id = "write">
+                <label for="noteTitle">Note Title</label>
+                <input class = "form-control" type="text" id = "noteTitle"/>
+                <label for ="noteBody">Note</label>
+                <textarea class="form-control" id="noteBody"></textarea>
+                <button class="btn btn-primary" id = "btnSave">Save Note</button>
+                <button class="btn btn-primary" id = "btnSaveTwo">Save Note</button>
+                </div>
+                <div id = "read">
+                    <button class="btn btn-primary" id = "btnWrite">Write Note</button>
+                    <select class="form-control" size = "10" id="noteMaster"></select>
+                    <div id ="noteDisplay">
+                    </div>
+                </div>
+            </div>
+        <script src="index.js"></script>
+</body>
+</html>
