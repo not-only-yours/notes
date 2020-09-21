@@ -157,4 +157,6 @@ btnSaveTwo.onclick = function (){
             localStorage.setItem('noteData',JSON.stringify(noteArray));
             readNotes();
             init();
+            document.getElementById('btnSave').style.display = "inline-block";
+            document.getElementById('btnSaveTwo').style.display = "inline-block";
         }
