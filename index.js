@@ -37,6 +37,7 @@ function init() {
 }
 
     function writeNote(){
+        location.hash = 'newNote';
         document.getElementById('read').style.display = "none";
         document.getElementById('write').style.display = "block";
         document.getElementById('noteTitle').value = "";
@@ -71,6 +72,8 @@ function init() {
     }
 
 
+
+
     function displayNote(note) {
         let noteArray = JSON.parse(localStorage.getItem('noteData'));
         let out = "<h2>" + noteArray[note].title + "</h2>";
@@ -88,6 +91,7 @@ function init() {
         }
         document.getElementById('btnEdit').onclick = function (){
             let noteArray = JSON.parse(localStorage.getItem('noteData'));
+            location.hash = noteArray[note].date;
             init();
             document.getElementById('read').style.display = "none";
             document.getElementById('write').style.display = "block";
@@ -96,12 +100,19 @@ function init() {
             document.getElementById('noteTitle').value = noteArray[note].title;
             document.getElementById('noteBody').value = noteArray[note].body;
 
-
         }
+    }
+
+    back.onclick = () => {
+        document.getElementById('btnSave').style.display = "inline-block";
+        document.getElementById('btnSaveTwo').style.display = "inline-block";
+    readNotes();
+    location.hash = '';
     }
 
 
 btnSaveTwo.onclick = function (){
+    location.hash = '';
     let noteArray = JSON.parse(localStorage.getItem('noteData'));
     for (let a=0;a<noteArray.length;a++){
         //console.log(noteArray[i].title);
@@ -135,6 +146,7 @@ btnSaveTwo.onclick = function (){
     }
 
         function saveNotes(note){
+            location.hash = '';
             let noteArray = JSON.parse(localStorage.getItem('noteData'));
             if(noteArray == null){
                 noteArray = new Array();

@@ -1,31 +1,47 @@
-let getParams = function (url) {
-    var params = {}
-    var parser = document.createElement('a')
-    url = url || window.location.href
-    parser.href = url
-    var query = parser.search.substring(1)
-    var vars = query.split('&')
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=')
-        params[pair[0]] = decodeURIComponent(pair[1])
+window.onload = () => {
+    if(location.hash){
+        if(location.hash.slice(1) === 'newNote'){
+            writeNote();
+        }else{
+        let noteArray = JSON.parse(localStorage.getItem('noteData'));
+        for(let i=0;i<noteArray.length;i++) {
+            console.log(noteArray[i].date + ' '+ location.hash.slice(1));
+            if (noteArray[i].date.toString() === location.hash.slice(1).toString()) {
+                console.log('ewrgwrgegwer');
+                let noteArray = JSON.parse(localStorage.getItem('noteData'));
+                init();
+                document.getElementById('read').style.display = "none";
+                document.getElementById('write').style.display = "block";
+                document.getElementById('btnSave').style.display = "none";
+                //todo change func of button;
+                document.getElementById('noteTitle').value = noteArray[i].title;
+                document.getElementById('noteBody').value = noteArray[i].body;
+            }
+        }
+        }
     }
-    return params
 }
 
-
-let parameters = getParams();
-console.log(getParams());
-
-if(parameters['id']){
-    const id = parameters['id']
-    //console.log(id.getType())
-    let noteArray = JSON.parse(localStorage.getItem('noteData'));
-    //console.log(noteArray)
-    if(id === "newNote"){
-
-    }
-    if(noteArray){
-        //console.log('sdgfsedf')
-        displayNote(0);
+window.onhashchange = () => {
+    if(location.hash){
+        if(location.hash.slice(1) === 'newNote'){
+            writeNote();
+        }else{
+            let noteArray = JSON.parse(localStorage.getItem('noteData'));
+            for(let i=0;i<noteArray.length;i++) {
+                console.log(noteArray[i].date + ' '+ location.hash.slice(1));
+                if (noteArray[i].date.toString() === location.hash.slice(1).toString()) {
+                    console.log('ewrgwrgegwer');
+                    let noteArray = JSON.parse(localStorage.getItem('noteData'));
+                    init();
+                    document.getElementById('read').style.display = "none";
+                    document.getElementById('write').style.display = "block";
+                    document.getElementById('btnSave').style.display = "none";
+                    //todo change func of button;
+                    document.getElementById('noteTitle').value = noteArray[i].title;
+                    document.getElementById('noteBody').value = noteArray[i].body;
+                }
+            }
+        }
     }
 }
