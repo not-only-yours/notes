@@ -112,6 +112,7 @@ function init() {
 
 
 btnSaveTwo.onclick = function (){
+    document.getElementById('noteDisplay').innerHTML = '';
     location.hash = '';
     let noteArray = JSON.parse(localStorage.getItem('noteData'));
     for (let a=0;a<noteArray.length;a++){
